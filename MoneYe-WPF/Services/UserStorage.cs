@@ -39,9 +39,8 @@ namespace MoneYe_WPF.Services
         }
         public void EditUser(User oldUser, User newUser)
         {
-            var index = Users.IndexOf(oldUser);
-            Users.RemoveAt(index);
-            Users.Insert(index, newUser);
+            int idx = Users.IndexOf(oldUser);
+            Users[idx] = newUser;
         }
         public User GetUserByLoginInfo(string login, string password)
         {
