@@ -33,6 +33,7 @@ namespace MoneYe_WPF
             //ViewModels
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<LoginViewModel>();
+            Container.RegisterSingleton<RegViewModel>();
 
 
             Container.Verify();

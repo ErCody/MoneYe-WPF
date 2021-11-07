@@ -10,6 +10,9 @@
             <DataTemplate DataType="{x:Type ViewModel:LoginViewModel}">
                 <view:LoginView></view:LoginView>
             </DataTemplate>
+            <DataTemplate DataType="{x:Type ViewModel:RegViewModel}">
+                <view:RegistrationView></view:RegistrationView>
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Defaults.xaml" />
