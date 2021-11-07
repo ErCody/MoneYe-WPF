@@ -2,36 +2,54 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:MoneYe_WPF.View"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             xmlns:viewmodel="clr-namespace:MoneYe_WPF.ViewModel" 
              mc:Ignorable="d" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:RegViewModel}"
              d:DesignHeight="450" d:DesignWidth="800" Background="Azure">
+
     <UniformGrid>
         <UniformGrid.Background>
             <ImageBrush ImageSource="../Resources/loginBackground.jpg"/>
         </UniformGrid.Background>
         <Border HorizontalAlignment="Center"
                 Background="LightBlue" 
-                CornerRadius="10"
-                Margin="0,10,0,10">
-            <StackPanel>
-                <Image Source="../Resources/logo_transparent.png" 
+                CornerRadius="10">
+            <Border.Triggers>
+                <EventTrigger RoutedEvent="Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" 
+                                                              BeginTime="00:00:00">
+                                <SplineThicknessKeyFrame KeyTime="00:00:00" 
+                                                         Value="0, 1000,0,-500" />
+                                <SplineThicknessKeyFrame KeyTime="00:00:01"
+                                                         Value="0, 10,0,10" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Border.Triggers>
+            <ScrollViewer HorizontalScrollBarVisibility="Hidden"
+                          VerticalScrollBarVisibility="Hidden">
+                <StackPanel>
+                    <Image Source="../Resources/logo_transparent.png" 
                    MaxHeight="170"
                    MaxWidth="170"/>
 
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="33"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="User"
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="User"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"
                                              Grid.Column="0"/>
-                <TextBox Margin="10 0"
+                        <TextBox Margin="10 0"
                          HorizontalAlignment="Stretch"
                          materialDesign:HintAssist.Hint="Name" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -39,7 +57,7 @@
                          MaxLength="50"
                          FontFamily="Champagne &amp; Limousines"
                          Grid.Column="1"/>
-                <TextBox Margin="10 , 0, 0, 0"
+                        <TextBox Margin="10 , 0, 0, 0"
                          HorizontalAlignment="Stretch"
                          materialDesign:HintAssist.Hint="Surname" 
                          Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -47,23 +65,23 @@
                          MaxLength="50"
                          FontFamily="Champagne &amp; Limousines" 
                          Grid.Column="2"/>
-                </Grid>
-                <Grid Margin="10">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="33"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                        <ColumnDefinition Width="33"></ColumnDefinition>
-                        <ColumnDefinition></ColumnDefinition>
-                    </Grid.ColumnDefinitions>
-                    <materialDesign:PackIcon Kind="User"
+                    </Grid>
+                    <Grid Margin="10">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="33"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                            <ColumnDefinition Width="33"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <materialDesign:PackIcon Kind="User"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"
                                              Grid.Column="0"/>
-                   <DatePickerTextBox Grid.Column="1"
+                        <DatePickerTextBox Grid.Column="1"
                                       Text="Birthday"
                                       TextAlignment="Center"/>
-                    <TextBox Margin="10 , 0, 0, 0"
+                        <TextBox Margin="10 , 0, 0, 0"
                              HorizontalAlignment="Stretch"
                              materialDesign:HintAssist.Hint="Surname" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
@@ -71,81 +89,83 @@
                              MaxLength="50"
                              FontFamily="Champagne &amp; Limousines" 
                              Grid.Column="2"/>
-                </Grid>
-                <DockPanel Margin="10" >
-                    <materialDesign:PackIcon Kind="Email"
+                    </Grid>
+                    <DockPanel Margin="10" >
+                        <materialDesign:PackIcon Kind="Email"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                    <TextBox Margin="10 0"
+                        <TextBox Margin="10 0"
                              materialDesign:HintAssist.Hint="Email" 
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Foreground="Black"
                              MaxLength="50"
                              FontFamily="Champagne &amp; Limousines" />
-                </DockPanel>
+                    </DockPanel>
 
-                <DockPanel Margin="10">
-                    <materialDesign:PackIcon Kind="Password"
+                    <DockPanel Margin="10">
+                        <materialDesign:PackIcon Kind="Password"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                    <PasswordBox materialDesign:HintAssist.Hint="Password"  
+                        <PasswordBox materialDesign:HintAssist.Hint="Password"  
                                  Margin="10 0"
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                  Foreground="Black"
                                  MaxLength="20"
                                  FontFamily="Champagne &amp; Limousines" />
-                </DockPanel>
-                <DockPanel Margin="10">
-                    <materialDesign:PackIcon Kind="PasswordCheck"
+                    </DockPanel>
+                    <DockPanel Margin="10">
+                        <materialDesign:PackIcon Kind="PasswordCheck"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                    <PasswordBox materialDesign:HintAssist.Hint="Confirm Password"  
+                        <PasswordBox materialDesign:HintAssist.Hint="Confirm Password"  
                                  Margin="10 0"
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                  Foreground="Black"
                                  MaxLength="20"
                                  FontFamily="Champagne &amp; Limousines" />
-                </DockPanel>
-                <DockPanel Margin="10">
-                    <materialDesign:PackIcon Kind="Smartphone"
+                    </DockPanel>
+                    <DockPanel Margin="10">
+                        <materialDesign:PackIcon Kind="Smartphone"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                    <PasswordBox materialDesign:HintAssist.Hint="Phone Number"  
+                        <PasswordBox materialDesign:HintAssist.Hint="Phone Number"  
                                  Margin="10 0"
                                  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
                                  Foreground="Black"
                                  MaxLength="20"
                                  FontFamily="Champagne &amp; Limousines" />
-                </DockPanel>
+                    </DockPanel>
 
 
 
-                <CheckBox HorizontalAlignment="Center"
+                    <CheckBox HorizontalAlignment="Center"
                           Content="By continuing you agree to our Terms of Service and Privacy Policy 
                 &#x0a;for Desktop Version of ©MoneYe application
                &#x0a;All rights reserved to ©MoneYe. 2021"/>
-                <Button Width="250"
+                    <Button Width="250"
                     BorderBrush="Blue"
                     Background="Blue"
                     BorderThickness="1"
                     Margin="5"
                     Content="Registration">
-                </Button>
-                <WrapPanel VerticalAlignment="Bottom"
+                    </Button>
+                    <WrapPanel VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
                            Margin="5">
-                    <TextBlock TextAlignment="Center" 
+                        <TextBlock TextAlignment="Center" 
                            Margin="0,0, 4, 0"
                            Text="Already have an account?"/>
-                    <TextBlock TextAlignment="Center" 
+                        <TextBlock TextAlignment="Center" 
                            Foreground="Purple"
                            Text="Login"/>
-                </WrapPanel>
-            </StackPanel>
+                    </WrapPanel>
+                </StackPanel>
+            </ScrollViewer>
+            
         </Border>
     </UniformGrid>
 </UserControl>
