@@ -14,5 +14,11 @@ namespace MoneYe_WPF.Model
         None
     }
 
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
 
 }

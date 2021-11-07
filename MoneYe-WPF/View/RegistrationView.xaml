@@ -73,22 +73,40 @@
                             <ColumnDefinition Width="33"></ColumnDefinition>
                             <ColumnDefinition></ColumnDefinition>
                         </Grid.ColumnDefinitions>
-                        <materialDesign:PackIcon Kind="User"
+                        <materialDesign:PackIcon Kind="BirthdayCake"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"
                                              Grid.Column="0"/>
-                        <DatePickerTextBox Grid.Column="1"
-                                      Text="Birthday"
-                                      TextAlignment="Center"/>
-                        <TextBox Margin="10 , 0, 0, 0"
-                             HorizontalAlignment="Stretch"
-                             materialDesign:HintAssist.Hint="Surname" 
-                             Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
-                             Foreground="Black"
-                             MaxLength="50"
-                             FontFamily="Champagne &amp; Limousines" 
-                             Grid.Column="2"/>
+                        <DatePicker Grid.Column="1"
+                                    Margin="0, 0, 10, 0"
+                                    Text="Birthday"/>
+                        <!--Gender Icon-->
+                        <materialDesign:PackIcon Kind="GenderMaleFemale" 
+                                                 Foreground="Black"
+                                                 Width="25" 
+                                                 Height="33"
+                                                 Grid.Column="2"/>
+                        <!--Gender Field-->
+                        <ComboBox Grid.Column="3"
+                                  Text="Gender">
+                            <ComboBoxItem>
+                                <StackPanel Orientation="Horizontal">
+                                    <materialDesign:PackIcon Kind="GenderMale"
+                                                             Foreground="Black"
+                                                             Width="20" 
+                                                             Height="20"/>
+                                    <Label Content="Male"/>
+                                </StackPanel>
+                            </ComboBoxItem>
+                            <StackPanel Orientation="Horizontal">
+                                <materialDesign:PackIcon Kind="GenderFemale"
+                                                         Foreground="Black"
+                                                         Width="20" 
+                                                         Height="20"/>
+                                <Label Content="Female"/>
+                            </StackPanel>
+                        </ComboBox>
                     </Grid>
                     <DockPanel Margin="10" >
                         <materialDesign:PackIcon Kind="Email"
@@ -101,6 +119,19 @@
                              Foreground="Black"
                              MaxLength="50"
                              FontFamily="Champagne &amp; Limousines" />
+                    </DockPanel>
+
+                    <DockPanel Margin="10">
+                        <materialDesign:PackIcon Kind="Smartphone"
+                                                 Foreground="Black"
+                                                 Width="25" 
+                                                 Height="33"/>
+                        <TextBox materialDesign:HintAssist.Hint="Phone Number"  
+                                 Margin="10 0"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
+                                 Foreground="Black"
+                                 MaxLength="20"
+                                 FontFamily="Champagne &amp; Limousines" />
                     </DockPanel>
 
                     <DockPanel Margin="10">
@@ -127,18 +158,7 @@
                                  MaxLength="20"
                                  FontFamily="Champagne &amp; Limousines" />
                     </DockPanel>
-                    <DockPanel Margin="10">
-                        <materialDesign:PackIcon Kind="Smartphone"
-                                             Foreground="Black"
-                                             Width="25" 
-                                             Height="33"/>
-                        <PasswordBox materialDesign:HintAssist.Hint="Phone Number"  
-                                 Margin="10 0"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
-                                 Foreground="Black"
-                                 MaxLength="20"
-                                 FontFamily="Champagne &amp; Limousines" />
-                    </DockPanel>
+ 
 
 
 
