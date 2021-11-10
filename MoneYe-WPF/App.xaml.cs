@@ -28,12 +28,14 @@ namespace MoneYe_WPF
             Container.RegisterSingleton<INavigationService, NavigationService>();
             Container.RegisterSingleton<IMessenger, Messenger>();
             Container.RegisterSingleton<IFileService, FileService>();
-            Container.RegisterSingleton<IUserStorage, UserStorage>();
+            Container.RegisterSingleton<IValidator, Validator>();
 
             //ViewModels
             Container.RegisterSingleton<MainViewModel>();
             Container.RegisterSingleton<LoginViewModel>();
             Container.RegisterSingleton<RegViewModel>();
+            Container.RegisterSingleton<MainScreenViewModel>();
+            Container.RegisterSingleton<Balance_ViewModel>();
 
 
             Container.Verify();

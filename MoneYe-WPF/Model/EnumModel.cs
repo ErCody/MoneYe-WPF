@@ -8,9 +8,9 @@ namespace MoneYe_WPF.Model
 {
     public enum Currency
     {
+        AznMan,
         RuRub,
         UsdDol,
-        AznMan,
         None
     }
 

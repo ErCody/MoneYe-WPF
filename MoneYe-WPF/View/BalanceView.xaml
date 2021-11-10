@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="MoneYe_WPF.View.BalanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:MoneYe_WPF.View"
+             xmlns:viewmodel="clr-namespace:MoneYe_WPF.ViewModel" 
+             d:DataContext="{d:DesignInstance Type=viewmodel:Balance_ViewModel}"
+             mc:Ignorable="d" 
+             Background="Azure"
+             Height="300" 
+             Width="300">
+    <DockPanel HorizontalAlignment="Center">
+        <Grid HorizontalAlignment="Left"
+              VerticalAlignment="Top"
+              DockPanel.Dock="Top">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Enter your balance: "
+                       VerticalAlignment="Center"
+                       Margin="0, 20, 0, 0"
+                       FontSize="15"
+                       Grid.Row="0"
+                       Grid.Column="0"/>
+           
+            <TextBlock Text="Choose you Currency: "
+                       VerticalAlignment="Center"
+                       Margin="0, 20, 0, 0"
+                       FontSize="15"
+                       Grid.Row="1"
+                       Grid.Column="0"/>
+
+
+
+            <TextBox Width="100"
+                     Grid.Row="0"
+                     Grid.Column="1"
+                     Text="{Binding Amount}"/>
+
+          
+            <ComboBox Width="100"
+                      Grid.Row="1"
+                      Grid.Column="1"
+                      SelectedIndex="{Binding Currency}">
+                <ComboBoxItem>
+                    <Label Content="Azn"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Label Content="Rub"/>
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    <Label Content="USD"/>
+                </ComboBoxItem>
+            </ComboBox>
+        </Grid>
+        <Button DockPanel.Dock="Bottom"
+                Content="Ready"
+                Command="{Binding RegCommand}"/>
+    </DockPanel>
+</UserControl>

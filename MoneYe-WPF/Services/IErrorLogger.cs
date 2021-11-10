@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace MoneYe_WPF.Services
 {
-    interface IErrorLogger
+    public interface IErrorLogger
     {
         public void LogError(string message, Exception ex);
     }

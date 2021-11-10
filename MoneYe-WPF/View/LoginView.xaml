@@ -35,19 +35,22 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Foreground="Black"
                              MaxLength="50"
-                             FontFamily="Champagne &amp; Limousines" />
+                             FontFamily="Champagne &amp; Limousines" 
+                             Text="{Binding Email}"/>
                     </DockPanel>
                     <DockPanel Margin="10">
                         <materialDesign:PackIcon Kind="Password"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                        <PasswordBox materialDesign:HintAssist.Hint="Password"  
+                        <TextBox materialDesign:HintAssist.Hint="Password"  
                                  Margin="10 0"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  Foreground="Black"
                                  MaxLength="20"
-                                 FontFamily="Champagne &amp; Limousines" />
+                                 FontFamily="Champagne &amp; Limousines" 
+                                 Text="{Binding Password}"
+                                 />
                     </DockPanel>
                     <CheckBox HorizontalAlignment="Center"
                           Content="By continuing you agree to our Terms of Service and Privacy Policy 
@@ -59,7 +62,8 @@
                     Background="Blue"
                     BorderThickness="1"
                     Margin="5"
-                    Content="Login">
+                    Content="Login"
+                    Command="{Binding LoginCommand}">
                     </Button>
 
                     <WrapPanel VerticalAlignment="Bottom"

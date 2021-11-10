@@ -1,24 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel;
 
 namespace MoneYe_WPF.Model
 {
-    class Money
-    {
-        public decimal Amount { get; set; }
-        public Currency Currency { get; set; }
+   public class Money
+   {
+       public decimal Amount { get; set; } = 0;
+        public decimal Income { get; set; } = 0;
+        public decimal Consumption { get; set; } = 0;
+        public Currency Currency { get; set; } = Currency.None;
 
         private string CurrencyString()
         {
             return Currency switch
             {
-                Currency.RuRub => "Russian Ruble",
-                Currency.UsdDol => "USD Dollar",
-                Currency.AznMan => "Azerbaijan Manat",
+                Currency.RuRub => "RUB",
+                Currency.UsdDol => "USD",
+                Currency.AznMan => "AZN",
                 _ => throw new InvalidEnumArgumentException(),
             };
         }

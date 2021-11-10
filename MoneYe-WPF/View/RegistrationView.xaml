@@ -7,15 +7,18 @@
              xmlns:viewmodel="clr-namespace:MoneYe_WPF.ViewModel" 
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodel:RegViewModel}"
-             d:DesignHeight="450" d:DesignWidth="800" Background="Azure">
+             d:DesignHeight="450"
+             d:DesignWidth="800">
 
     <UniformGrid>
         <UniformGrid.Background>
             <ImageBrush ImageSource="../Resources/loginBackground.jpg"/>
         </UniformGrid.Background>
+
         <Border HorizontalAlignment="Center"
                 Background="LightBlue" 
                 CornerRadius="10">
+
             <Border.Triggers>
                 <EventTrigger RoutedEvent="Loaded">
                     <BeginStoryboard>
@@ -31,6 +34,7 @@
                     </BeginStoryboard>
                 </EventTrigger>
             </Border.Triggers>
+
             <ScrollViewer HorizontalScrollBarVisibility="Hidden"
                           VerticalScrollBarVisibility="Hidden">
                 <StackPanel>
@@ -56,7 +60,8 @@
                          Foreground="Black"
                          MaxLength="50"
                          FontFamily="Champagne &amp; Limousines"
-                         Grid.Column="1"/>
+                         Grid.Column="1"
+                         Text="{Binding Name}"/>
                         <TextBox Margin="10 , 0, 0, 0"
                          HorizontalAlignment="Stretch"
                          materialDesign:HintAssist.Hint="Surname" 
@@ -64,7 +69,8 @@
                          Foreground="Black"
                          MaxLength="50"
                          FontFamily="Champagne &amp; Limousines" 
-                         Grid.Column="2"/>
+                         Grid.Column="2"
+                         Text="{Binding Surname}"/>
                     </Grid>
                     <Grid Margin="10">
                         <Grid.ColumnDefinitions>
@@ -80,16 +86,18 @@
                                              Grid.Column="0"/>
                         <DatePicker Grid.Column="1"
                                     Margin="0, 0, 10, 0"
-                                    Text="Birthday"/>
-                        <!--Gender Icon-->
+                                    Text="Birthday"
+                                    SelectedDate="{Binding Age}"/>
+                       
                         <materialDesign:PackIcon Kind="GenderMaleFemale" 
                                                  Foreground="Black"
                                                  Width="25" 
                                                  Height="33"
                                                  Grid.Column="2"/>
-                        <!--Gender Field-->
+                        
                         <ComboBox Grid.Column="3"
-                                  Text="Gender">
+                                  Text="Gender"
+                                  SelectedIndex="{Binding Gender}">
                             <ComboBoxItem>
                                 <StackPanel Orientation="Horizontal">
                                     <materialDesign:PackIcon Kind="GenderMale"
@@ -106,8 +114,10 @@
                                                          Height="20"/>
                                 <Label Content="Female"/>
                             </StackPanel>
+
                         </ComboBox>
                     </Grid>
+
                     <DockPanel Margin="10" >
                         <materialDesign:PackIcon Kind="Email"
                                              Foreground="Black"
@@ -118,9 +128,9 @@
                              Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                              Foreground="Black"
                              MaxLength="50"
-                             FontFamily="Champagne &amp; Limousines" />
+                             FontFamily="Champagne &amp; Limousines"
+                             Text="{Binding Email}"/>
                     </DockPanel>
-
                     <DockPanel Margin="10">
                         <materialDesign:PackIcon Kind="Smartphone"
                                                  Foreground="Black"
@@ -131,36 +141,35 @@
                                  Style="{StaticResource MaterialDesignFloatingHintTextBox}" 
                                  Foreground="Black"
                                  MaxLength="20"
-                                 FontFamily="Champagne &amp; Limousines" />
+                                 FontFamily="Champagne &amp; Limousines"
+                                 Text="{Binding Phone}"/>
                     </DockPanel>
-
                     <DockPanel Margin="10">
                         <materialDesign:PackIcon Kind="Password"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                        <PasswordBox materialDesign:HintAssist.Hint="Password"  
+                        <TextBox materialDesign:HintAssist.Hint="Password"  
                                  Margin="10 0"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Foreground="Black"
                                  MaxLength="20"
-                                 FontFamily="Champagne &amp; Limousines" />
+                                 FontFamily="Champagne &amp; Limousines" 
+                                 Text="{Binding Password}"/>
                     </DockPanel>
                     <DockPanel Margin="10">
                         <materialDesign:PackIcon Kind="PasswordCheck"
                                              Foreground="Black"
                                              Width="25" 
                                              Height="33"/>
-                        <PasswordBox materialDesign:HintAssist.Hint="Confirm Password"  
+                        <TextBox materialDesign:HintAssist.Hint="Password"  
                                  Margin="10 0"
-                                 Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"
+                                 Style="{StaticResource MaterialDesignFloatingHintTextBox}"
                                  Foreground="Black"
                                  MaxLength="20"
-                                 FontFamily="Champagne &amp; Limousines" />
+                                 FontFamily="Champagne &amp; Limousines" 
+                                 Text="{Binding ConfirmPassword}"/>
                     </DockPanel>
- 
-
-
 
                     <CheckBox HorizontalAlignment="Center"
                           Content="By continuing you agree to our Terms of Service and Privacy Policy 
@@ -171,7 +180,9 @@
                     Background="Blue"
                     BorderThickness="1"
                     Margin="5"
-                    Content="Registration">
+                    Content="Registration"
+                    Command="{Binding RegCommand}">
+
                     </Button>
                     <WrapPanel VerticalAlignment="Bottom"
                            HorizontalAlignment="Center"
