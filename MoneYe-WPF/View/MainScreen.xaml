@@ -23,8 +23,10 @@
                        FontSize="15"/>
         </WrapPanel>
         <WrapPanel>
-            <Button Content="Add"/>
-            <Button Content="Subtract"/>
+            <Button Content="Add"
+                    Command="{Binding IncomeCommand}"/>
+            <Button Content="Subtract"
+                    Command="{Binding ConsumptionCommand}"/>
         </WrapPanel>
     </StackPanel>
 </UserControl>

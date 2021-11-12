@@ -36,6 +36,8 @@ namespace MoneYe_WPF
             Container.RegisterSingleton<RegViewModel>();
             Container.RegisterSingleton<MainScreenViewModel>();
             Container.RegisterSingleton<Balance_ViewModel>();
+            Container.RegisterSingleton<ConsumptiomModelView>();
+            Container.RegisterSingleton<IncomeViewModel>();
 
 
             Container.Verify();
