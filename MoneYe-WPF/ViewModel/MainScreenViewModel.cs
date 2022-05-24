@@ -15,7 +15,7 @@ namespace MoneYe_WPF.ViewModel
         public INavigationService NavigationService;
         public IErrorLogger ErrorLogger;
         public User ActiveUser { get; set; } = new User();
-
+        
         public MainScreenViewModel(IMessenger messenger, INavigationService navigationService, IErrorLogger errorLogger)
         {
             Messenger = messenger;

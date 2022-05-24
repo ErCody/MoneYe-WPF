@@ -1,0 +1,1 @@
+﻿//IDEA: Create a list of wallets.

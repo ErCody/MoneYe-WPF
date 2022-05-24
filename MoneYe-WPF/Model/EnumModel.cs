@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace MoneYe_WPF.Model
 {
+    //REFACTOR: Separate enums to two different files. 
     public enum Currency
     {
         AznMan,
