@@ -4,8 +4,10 @@ using MoneYe_WPF.Model;
 
 namespace MoneYe_WPF.Services
 {
+    
     class Validator : IValidator
     {
+        
         private Regex _regex;
 
         public Email GetEmail(string address)
@@ -13,7 +15,7 @@ namespace MoneYe_WPF.Services
             var match = RegexCheck(address, @"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
             if (match.Success)
             {
-                return new Email() { Address = address };
+                return new Email { Address = address };
             }
             throw new Exception("For time");
         }
